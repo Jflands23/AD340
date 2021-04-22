@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Assignment2</string>
     <string name="submission">Submit Form</string>
+    <string name="fullname">Enter Name</string>
+    <string name="email">Enter Email</string>
+    <string name="username">Enter Username</string>
+    <string name="dob">Enter Date of Birth</string>
+    <string name="thankyou">Thank you for signing up!</string>
 </resources>
