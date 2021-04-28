@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1053050987710",
+    "project_id": "circleci-ad340",
+    "storage_bucket": "circleci-ad340.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053050987710:android:224533d562d5851e596aef",
+        "android_client_info": {
+          "package_name": "com.example.assignment2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053050987710-clv8n0f60cf8arml775cfkmgr1cnm643.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC52FTU9JkstMELtr34rzbcRl3n1gsEaUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053050987710-clv8n0f60cf8arml775cfkmgr1cnm643.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
