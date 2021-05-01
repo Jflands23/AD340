@@ -24,7 +24,7 @@ public class MainActivityTest {
 
     @Test
     public void canEnterNameAndSignUp() throws InterruptedException {
-        onView(withId(R.id.name)).perform(typeText("Jeff W"));
+        onView(withId(R.id.name)).perform(typeText("Jeff Wicorek"));
         onView(withId(R.id.email)).perform(typeText("jeffw@gmail.com"));
         onView(withId(R.id.username)).perform(typeText("JeffW"));
         onView(withId(R.id.bio)).perform(typeText("blah"));
