@@ -6,4 +6,7 @@
     <string name="username">Enter Username</string>
     <string name="dob">Enter Date of Birth</string>
     <string name="thankyou">Thank you for signing up!</string>
+    <string name="occupation">Enter Occupation</string>
+    <string name="bio">Enter Description</string>
+
 </resources>
