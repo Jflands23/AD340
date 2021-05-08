@@ -8,5 +8,5 @@
     <string name="thankyou">Thank you for signing up!</string>
     <string name="occupation">Enter Occupation</string>
     <string name="bio">Enter Description</string>
-
+    <string name="title">Dating App</string>
 </resources>

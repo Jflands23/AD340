@@ -2,54 +2,64 @@ package com.example.assignment2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 ;
 
 public class Submission extends AppCompatActivity{
-    TextView textView;
-    TextView bioView;
-    TextView nameView;
-    TextView jobView;
+    private FragmentManager manager;
+    private String uname;
+    private String bio;
+    private String name;
+    private String job;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.submission);
-        textView = findViewById(R.id.submission);
-        bioView = findViewById(R.id.bio);
-        nameView = findViewById(R.id.name);
-        jobView = findViewById(R.id.job);
-        StringBuilder msg = new StringBuilder("Thanks for Signing Up ");
 
+        manager = getSupportFragmentManager();
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
 
-        String name = "Example Name";
-        String bio = "";
-
-        if(b != null){
-            if(b.containsKey(Constants.KEY_USER)) {
-                name = b.getString(Constants.KEY_USER);
-                msg.append(name);
+        if (b != null) {
+            if (b.containsKey(Constants.KEY_USER)) {
+                uname = b.getString(Constants.KEY_USER);
             }
-            if(b.containsKey((Constants.KEY_BIO))) {
-                bioView.setText(b.getString(Constants.KEY_BIO));
+            if (b.containsKey((Constants.KEY_BIO))) {
+                bio = b.getString(Constants.KEY_BIO);
             }
-            if(b.containsKey((Constants.KEY_NAME))) {
-               nameView.setText(b.getString(Constants.KEY_NAME));
+            if (b.containsKey((Constants.KEY_NAME))) {
+                name = b.getString(Constants.KEY_NAME);
             }
-            if(b.containsKey((Constants.KEY_JOB))) {
-                jobView.setText(b.getString(Constants.KEY_JOB));
+            if (b.containsKey((Constants.KEY_JOB))) {
+                job = b.getString(Constants.KEY_JOB);
             }
         }
 
-        textView.setText(msg);
+        ProfileFragment fragment = new ProfileFragment();
+        fragment.setAttachment(new Attachment(uname, bio, name, job));
 
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.fragment_container, fragment, "fragA");
+        transaction.commit();
 
     }
+    public static class Attachment {
+        String uname;
+        String bio;
+        String name;
+        String job;
 
+        Attachment(String uname, String bio, String name, String job) {
+            this.uname = uname;
+            this.name = name;
+            this.bio = bio;
+            this.job = job;
+        }
+    }
 
 }
