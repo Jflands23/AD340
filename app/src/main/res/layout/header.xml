@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="www.eatmybutt.com"
+        android:text="www.mydates.com"
         android:textSize="14sp"
         app:fontFamily="sans-serif" />
 </LinearLayout>
