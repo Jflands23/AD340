@@ -18,8 +18,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
-;
-
 public class Submission extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private FragmentManager manager;
     private String uname;
@@ -53,7 +51,7 @@ public class Submission extends AppCompatActivity implements NavigationView.OnNa
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
+        /*navigationView.setCheckedItem(R.id.nav_home);*/
 
         manager = getSupportFragmentManager();
         Intent intent = getIntent();
@@ -111,6 +109,10 @@ public class Submission extends AppCompatActivity implements NavigationView.OnNa
             case R.id.nav_matches:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new MatchesFragment()).commit();
+                break;
+            case R.id.nav_settings:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new SettingsFragment()).commit();
                 break;
 
         }

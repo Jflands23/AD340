@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.assignment2.model.Match;
 import com.example.assignment2.network.ImageRequester;
-import com.example.assignment2.network.ProductEntry;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ import java.util.List;
  */
 public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCardViewHolder> {
 
-    private List<ProductEntry> productList;
+    private List<Match> productList;
     private ImageRequester imageRequester;
 
-    ProductCardRecyclerViewAdapter(List<ProductEntry> productList) {
+    ProductCardRecyclerViewAdapter(List<Match> productList) {
         this.productList = productList;
-     /*   imageRequester = ImageRequester.getInstance();*/
+        /*imageRequester = ImageRequester.getInstance();*/
     }
 
     @NonNull
@@ -34,11 +34,20 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
 
     @Override
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
-        // TODO: Put ViewHolder binding code here in MDC-102
+        if (productList != null) {
+            Match m = this.productList.get(position);
+            holder.name.setText(m.name);
+            holder.m = m;
+            holder.setLiked(m.liked);
+            imageRequester.setImageFromUrl(holder.matchImage, m.imageUrl);
+        }
     }
 
     @Override
     public int getItemCount() {
         return productList.size();
+    }
+    public void setMatchesList(List<Match> m) {
+        this.productList = m;
     }
 }
