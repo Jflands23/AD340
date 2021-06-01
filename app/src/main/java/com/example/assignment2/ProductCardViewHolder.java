@@ -19,7 +19,7 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder {
 
     public ProductCardViewHolder(@NonNull View itemView) {
         super(itemView);
-        matchImage = itemView.findViewById(R.id.match_image);
+        /*matchImage = itemView.findViewById(R.id.match_image);*/
         name = itemView.findViewById(R.id.match_name);
         likeBtn = (Button) itemView.findViewById(R.id.like_button);
         likeBtn.setOnClickListener(new View.OnClickListener() {
