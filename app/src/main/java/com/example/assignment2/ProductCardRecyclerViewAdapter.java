@@ -39,7 +39,7 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
             holder.name.setText(m.name);
             holder.m = m;
             holder.setLiked(m.liked);
-            imageRequester.setImageFromUrl(holder.matchImage, m.imageUrl);
+            /*imageRequester.setImageFromUrl(holder.matchImage, m.imageUrl);*/
         }
     }
 
