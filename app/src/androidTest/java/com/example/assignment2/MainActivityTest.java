@@ -34,7 +34,7 @@ public class MainActivityTest {
 
         onView(withId(R.id.goToSecondActivity)).perform(scrollTo(), (click()));
 
-        onView(withId(R.id.bio)).check(matches(withText("blah")));
+        onView(allOf(withId(R.id.bio))).check(matches(withText("blah")));
         onView(allOf(withId(R.id.name))).check(matches(withText("Jeff Wicorek")));
         onView(allOf(withId(R.id.job))).check(matches(withText("Software Dev")));
 
