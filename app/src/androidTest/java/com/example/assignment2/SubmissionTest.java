@@ -4,6 +4,7 @@ package com.example.assignment2;
 import android.os.Bundle;
 import android.view.Gravity;
 
+import androidx.test.espresso.Espresso;
 import androidx.test.espresso.contrib.DrawerActions;
 import androidx.test.espresso.contrib.NavigationViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -13,12 +14,19 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.DrawerMatchers.isClosed;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.example.assignment2.TestUtils.waitFor;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.is;
 
 @RunWith(AndroidJUnit4.class)
 public class SubmissionTest   {
@@ -28,21 +36,7 @@ public class SubmissionTest   {
     public ActivityScenarioRule rule = new ActivityScenarioRule<>(Submission.class);
 
 
-   /* @Test
-    public void testMatchesLikeToast() {
-        onView(isRoot()).perform(waitFor(1000));
-        // Open Drawer to click on navigation.
-        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open()); // Open Drawer
-        onView(isRoot()).perform(waitFor(1000));
-        onView(withText("Matches"))
-                .perform(click()); // Select nav button in nav drawer
-        onView(isRoot()).perform(waitFor(1000));
-        Espresso.pressBack();
-        onView(isRoot()).perform(waitFor(1000));
-
-    }*/
-
-    /*@Test
+    @Test
     public void checkNavDrawerSettings() {
         // Open Drawer to click on navigation.
         onView(withId(R.id.drawer_layout))
@@ -52,8 +46,7 @@ public class SubmissionTest   {
         onView(withId(R.id.nav_view))
                 .perform(NavigationViewActions.navigateTo(R.id.nav_settings));
 
-        onView(withId(R.id.nav_view))
-                .perform(NavigationViewActions.navigateTo(R.id.nav_settings));
+
         Espresso.pressBack();
         onView(isRoot()).perform(waitFor(1000));
 
@@ -77,7 +70,7 @@ public class SubmissionTest   {
                 .check(matches(isDisplayed()));
 
 
-    }*/
+    }
 
     @Test
     public void checkNavDrawerProfile() {
