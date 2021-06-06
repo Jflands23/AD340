@@ -1,7 +1,7 @@
 package com.example.assignment2;
 
 import android.view.View;
-import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,13 +15,13 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder {
     public NetworkImageView matchImage;
     public TextView name;
     public Match m;
-    Button likeBtn;
+    CheckBox likeBtn;
 
     public ProductCardViewHolder(@NonNull View itemView) {
         super(itemView);
         /*matchImage = itemView.findViewById(R.id.match_image);*/
         name = itemView.findViewById(R.id.match_name);
-        likeBtn = (Button) itemView.findViewById(R.id.like_button);
+        likeBtn = (CheckBox) itemView.findViewById(R.id.like_button);
         likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,7 +34,7 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setLiked(boolean liked) {
-       /* likeBtn.setChecked(liked);*/
+        likeBtn.setChecked(liked);
     }
 
 }

@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,8 +18,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+import com.example.assignment2.model.Match;
+import com.example.assignment2.viewmodels.MatchesViewModel;
 
-public class Submission extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Submission extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,MyListener {
     private FragmentManager manager;
     private String uname;
     private String bio;
@@ -31,6 +34,7 @@ public class Submission extends AppCompatActivity implements NavigationView.OnNa
     DatePicker dob;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    private MatchesViewModel viewModel;
     Toolbar toolbar;
     Menu menu;
     TextView textView2;
@@ -44,6 +48,7 @@ public class Submission extends AppCompatActivity implements NavigationView.OnNa
         /* textView2=findViewById(R.id.textView); */
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        viewModel = new MatchesViewModel();
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle=new
@@ -119,6 +124,28 @@ public class Submission extends AppCompatActivity implements NavigationView.OnNa
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+    }
+
+    @Override
+    public void matchesLikeToast(Match m) {
+        if(!m.liked) {
+            Toast.makeText(this, String.format("You Liked " + m.name), Toast.LENGTH_SHORT).show();
+            m.liked = true;
+        } else {
+            m.liked = false;
+        }
+        viewModel.updateMatch(m);
+    }
+    @Override
+    protected void onPause() {
+        viewModel.clear();
+        super.onPause();
     }
 
     public static class Attachment {
