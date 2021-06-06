@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
 
     <TextView
         android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Your Profile!" />
+
+    <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Profile!"
-        />
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
     <TextView
         android:id="@+id/submission"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/thankyou"
-        />
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/thankyou" />
+    </LinearLayout>
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        />
+        android:layout_below="@+id/layout1"
+        android:layout_centerHorizontal="true"
+        android:text="" />
 
     <TextView
         android:id="@+id/bio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        />
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:text="" />
 
     <TextView
         android:id="@+id/job"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/bio"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text=""
-        />
+        android:text="" />
 
-</LinearLayout>
+</RelativeLayout>
+</ScrollView>

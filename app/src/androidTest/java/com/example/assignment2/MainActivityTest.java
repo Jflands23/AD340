@@ -44,7 +44,6 @@ public class MainActivityTest {
     public void checkUsernameNotBlank() {
         onView(withId(R.id.name)).perform(typeText("Jeff"));
         onView(withId(R.id.email)).perform(typeText("Jeff@gmail.com"));
-        onView(withId(R.id.username)).perform(typeText(""));
 
         onView(withId(R.id.goToSecondActivity)).perform(scrollTo(), (click()));
 

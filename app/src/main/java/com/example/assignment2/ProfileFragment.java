@@ -27,7 +27,6 @@ public class ProfileFragment extends Fragment {
         nameView = view.findViewById(R.id.name);
         jobView = view.findViewById(R.id.job);
 
-        textView.setText(this.attachment.uname);
         bioView.setText(this.attachment.bio);
         nameView.setText(this.attachment.name);
         jobView.setText(this.attachment.job);
