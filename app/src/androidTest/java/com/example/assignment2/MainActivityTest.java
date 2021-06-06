@@ -51,4 +51,27 @@ public class MainActivityTest {
 
     }
 
+    @Test
+    public void dataResistOrientationChange() throws InterruptedException {
+        onView(withId(R.id.name)).perform(typeText("Jeff"));
+        onView(withId(R.id.email)).perform(typeText("jeff@gmail.com"));
+        onView(withId(R.id.username)).perform(typeText("JeffW"));
+        onView(withId(R.id.bio)).perform(typeText("Blah"));
+        onView(withId(R.id.job)).perform(scrollTo(),typeText("Software Dev"));
+
+        TestUtils.rotateScreen(TestUtils.getActivity(activityScenarioRule));
+        Thread.sleep(1000);
+        TestUtils.rotateScreen(TestUtils.getActivity(activityScenarioRule));
+        Thread.sleep(1000);
+
+        onView(withId(R.id.name)).check(matches(withText("Jeff")));
+        onView(withId(R.id.bio)).check(matches(withText("Blah")));
+        onView(withId(R.id.job)).check(matches(withText("Software Dev")));
+        onView(withId(R.id.username)).check(matches(withText("JeffW")));
+        onView(withId(R.id.email)).check(matches(withText("jeff@gmail.com")));
+
+
+    }
 }
+
+
