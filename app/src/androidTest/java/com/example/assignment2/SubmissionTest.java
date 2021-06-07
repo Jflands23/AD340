@@ -4,7 +4,6 @@ package com.example.assignment2;
 import android.os.Bundle;
 import android.view.Gravity;
 
-import androidx.test.espresso.Espresso;
 import androidx.test.espresso.contrib.DrawerActions;
 import androidx.test.espresso.contrib.NavigationViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -46,8 +45,7 @@ public class SubmissionTest   {
         onView(withId(R.id.nav_view))
                 .perform(NavigationViewActions.navigateTo(R.id.nav_settings));
 
-
-        Espresso.pressBack();
+//        Espresso.pressBack();
         onView(isRoot()).perform(waitFor(1000));
 
         onView(withId(R.id.time_spinner)).perform(click());
