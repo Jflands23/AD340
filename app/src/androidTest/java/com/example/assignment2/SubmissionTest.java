@@ -46,7 +46,6 @@ public class SubmissionTest   {
         onView(withId(R.id.nav_view))
                 .perform(NavigationViewActions.navigateTo(R.id.nav_settings));
 
-
         Espresso.pressBack();
         onView(isRoot()).perform(waitFor(1000));
 
